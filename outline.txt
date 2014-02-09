@@ -1,0 +1,8 @@
+The Problem
+  Deploying changes in a minimmaly ivasive way.
+  taking up minimal amount of processing power.
+  
+Knectar has a goal of "no touching" when it comes to deployment servers.
+  Napkins shoulod bever be used
+
+  
