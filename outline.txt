@@ -1,8 +1,73 @@
 The Problem
-  Deploying changes in a minimmaly ivasive way.
+  Deploying changes in a minimally invasive way to the end user. No down time, reduce slowness
   taking up minimal amount of processing power.
   
 Knectar has a goal of "no touching" when it comes to deployment servers.
-  Napkins shoulod bever be used
-
+  Napkin VCS should never be used
+  All Features on any machine other than dev should be full reverted
+  changes (even client requested "content" changes)
+    menu
+    block
+    even node data (not working  yet)
   
+  Db swaps are bad mkay
+  Generally changes that cant be done in a feature are done via hook_update_N() functions 
+
+Version One
+  When we first migrated to beanstalk I was delighted to find the post deployment script box as part of server configuration for SFTP connections
+  input
+    Drush
+    updb
+    fra
+    cc
+  When 3 people were working on a project in a sprint pushes were making the lean 512mb deployment servers were choking on this running 3 in 3 pids at once.
+  A dev asked if we could just run the on demand.
+  I thought it was a good idea
+
+Tools at my disposal
+  Git
+    VCS
+    we use git-flow
+
+  Beanstalk deployment roles/servers
+    post deployment script
+      vars available
+        $commit - that last commit message 
+        $date
+        $author
+        $commit-id
+  Drush
+    cc
+    updb
+    fra
+    SQL-dump
+  sh
+
+  Language Choice
+    why bash?
+    ruby/Drush plug-in etc is better
+    bash is everywhere
+    if I have cli the odds I have bash.
+    a small portable shell script is easier to update than a bash plug-in
+
+Setup
+  Set it up to download every time
+    new changes to the script are immediately available to the old server role.
+      Last week I added the -dbdump- option and used it on a server I setup 2 months ago.
+Use
+  In the commit
+    git commit -am "monthly updates -updb-"
+  With a manual deployment
+    screen shot
+Results
+  beanstalk sends an email of any thing goes wrong
+  a text file is concatenated with a recored of the revision and when it was deployed by who.
+
+How has this helped
+  In sprints the dev can just dev and they don't have to think about getting changes ready for a PM, just commit, resolve the ticket and move on.
+    I no longer resolve a ticket (with a commit message) and before I can get to the server to clear the cache etc) the PM un resolves it.
+      PM's are being trained to look to see of the changes have finished deploring before kicking the ticket back to me.
+  Other Dev's in the sprint can now view the log after pulling for actions needed to get their  db settings up to date and just run them.
+  The time between deployment of changed files and updates to schema related to the updates have been greatly reduced, meaning schema changes that introducer breaks in to the front end actions.
+
+
