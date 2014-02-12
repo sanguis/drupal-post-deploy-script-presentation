@@ -91,46 +91,94 @@
                      <h1 style="color: ivorey;">The Jorueny</h1>
                             </section>
                 <section>
+                    <aside class="notes">
+                    	when we fisrt starting runng a post deplyment script it look somthing like this.
+                    </aside>
             <h1>Version 1</h1>
-  input
-    Drush
-    updb
-    fra
-    cc
-  When 3 people were working on a project in a sprint pushes were making the lean 512mb deployment servers were choking on this running 3 in 3 pids at once.
-  A dev asked if we could just run the on demand.
-  I thought it was a good idea
+                    </section>
+                <section>
+                    <pre>
+                    	<code data-trim>
+drush updb -y
+drush fra -y
+drush cc all
+                    	</code>
+                    </pre>
+                    <aside class="notes">
+                    	As I mentioned this can be quite taxing if you have 3-4 developers constantl pushing and running these commands over and over.
+                        Generally we keep intergration instence on a retivle crouded 512mb cloud machine.
+                        (its a become some what of an intersting challenge to see how may drupal insces I can fit on them)
+                        eventually the Dev's looke like this.
+                    </aside>
+                    </section>
+                <section data-background="./images/frustrated1.jpg">
+          <aside class="notes">
+              <p>image source http://churchjobs.tv/</p>
+              and the PM's were looking at me like this:
+            </aside>
+                    <h1>make it stop</h1>
+                </section>
+                <section data-background="./images/Frustrated_Woman_Medium.jpg">
 
-Tools at my disposal
-  Git
-    VCS
-    we use git-flow
-
-  Beanstalk deployment roles/servers
-    post deployment script
-      vars available
-        $commit - that last commit message 
+                <img src="./images/Frustrated_Woman_Medium.jpg" >
+                    <h2>why why why</h2>
+           <aside class="notes">
+           	<p>image soucrce: http://www.agirlonthedoorstep.com/</p>
+               <p> ever time they went to test a ticket the were getitng 500 errors becase of the overlaod on the server.</p>
+               <p>Why run this everythime enve where the was a small css or js change</p>$
+           </aside>
+                </section>
+  <section>
+      <aside class="notes">
+      	<p> I took stock of my tools</p>
+      </aside>
+      <h2>Tools at my disposal</h2>
+      <ul>
+      	 <li class="fragment role-in">GIT</li>
+    <li class="fragment roll-in">Beanstalk deployment script window per server</li>
+    <li class="fragment roll-in">Drush</li>
+    <li class="fragment roll-in">BASH</li>
+      </ul>
+      <aside class="notes">
+      	<ul>roles/servers
+      		<li>We base out branching work flow on gitflow</li>
+            <li>Beanstalk provice sererval variables that the script can use   $comment - that last commit message
         $date
         $author
         $commit-id
-  Drush
-    cc
-    updb
-    fra
-    SQL-dump
-  sh
+ </li>
+      	</ul>
+      </aside>
+      </section>
+                <section>
 
-  Language Choice
-    why bash?
-    ruby/Drush plug-in etc is better
+                    	<h2>Why BASH?</h2>
+                        <aside class="notes">
+                                 ruby/Drush plug-in etc is better
     bash is everywhere
     if I have cli the odds I have bash.
-    a small portable shell script is easier to update than a bash plug-in
+    a small portable shell script is easier to update than a bash plug-in</aside>
+</section>
 
-Setup
-  Set it up to download every time
+<section>
+	<h1>Setup</h1>
+    <pre>
+    	<code data-trim>
+curl https://raw.github.com/sanguis/drupal-beanstalk-post-deployment-scripts/master/development.sh > /tmp/%USER_NAME%-%REVISION%.sh
+bash /tmp/%USER_NAME%-%REVISION%.sh "%COMMENT%" %REVISION% %USER_NAME%
+    	</code>
+  </pre>
+<aside class="notes">
+	  Set it up to download every time
     new changes to the script are immediately available to the old server role.
       Last week I added the -dbdump- option and used it on a server I setup 2 months ago.
+</aside>
+
+</section>
+<section>
+
+Setup
+
 Use
   In the commit
     git commit -am "monthly updates -updb-"
