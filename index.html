@@ -1,286 +1,287 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
 
-		<title>drupal-post-deploy-script-presentation</title>
+    <title>drupal-post-deploy-script-presentation</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Josh Beauregard">
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Josh Beauregard">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
-        <link rel="stylesheet" href="/css/sang.css">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <link rel="stylesheet" href="/css/sang.css">
 
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-		<script>
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-		</script>
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
 
-	<body>
+  <body>
 
-		<div class="reveal">
+    <div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-                <section>
-                	<h1>Drupal/BeanStalk Post Deployment tools</h1>
-                    <h3>Josh Beauregard, DevOps</h3>
-                    <h3><a href="http://www.knectar.com">www.Knectar.com</a></h3>
-                    <h4>Drupal DevOps Meetup, Feb 14 2014</h4>
-                </section>
-                <section>
-                	<h1>About me</h1>
-                    <ul>
-                        <li>DevOps at Knectar</li>
-                        <li><a href="https://drupal.org/user/99947">d.o user: Sanguis</a></li>
-                        <li>IRC: sanguisdex</li>
-                        <li>Twitter: @Sanguisdex</li>
-                        <li>Github: Sanguis</li>
-                    </ul>
-                </section>
-                <section>
-                	<ul>
-                		<li>Been Developing drupal sites since version 4.6 (2006-7 ish)</li>
-                        <li>Moved in to a more DevOps like role  2011</li>
-                    </ul>
-                        <h3 class="fragment">And Never looked back</h3>
-                 </section>
-                <section>
-                 <h1>The Challenge</h1>
-                    
-  <h3 class="fragment">Deploying changes in a minimally invasive way to the end user. No down time, reduce slowness
-  taking up minimal amount of processing power.</h3>
-  </section>
-<section>
-    <h1>Specs</h1>
-</section>
-<section>
-    <img src="./images/No-Touching.jpg" />
-    <h1>No Touching</h1>
-    </section>
-                <section>
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+        <h1>Drupal/BeanStalk Post Deployment tools</h1>
+        <h3>Josh Beauregard, DevOps</h3>
+        <h3><a href="http://www.knectar.com">www.Knectar.com</a></h3>
+        <h4>Drupal DevOps Meetup, Feb 14 2014</h4>
+        </section>
+        <section>
+        <h1>About me</h1>
+        <ul>
+          <li>DevOps at Knectar</li>
+          <li><a href="https://drupal.org/user/99947">d.o user: Sanguis</a></li>
+          <li>IRC: sanguisdex</li>
+          <li>Twitter: @sanguisdev</li>
+          <li>Github: Sanguis</li>
+        </ul>
+        </section>
+        <section>
+        <ul>
+          <li>Been Developing Drupal sites since version 4.6 (2006-7 ish)</li>
+          <li>Moved in to a more DevOps like role  2011</li>
+        </ul>
+        <h3 class="fragment">And Never looked back</h3>
+        </section>
+        <section>
+        <h1>Disclaimer:</h1>
+        <p>
+        I do not work for beanstalk
+        </p>
+        <p>I am not trying to sell beanstalk</p>
+        <p>It's just a tool that I found works for me</p>
+        <aside class="notes">
+        I believe that this algorithm could be used beyond
+        </aside>
+        </section>
+        <section>
+        <h1>The Challenge</h1>
+
+        <h3 class="fragment">Deploying changes in a minimally invasive way to the end user. No down time, reduce slowness
+          taking up minimal amount of processing power.</h3>
+        </section>
+        <section>
+        <h1>Specs</h1>
+        </section>
+        <section>
+        <img src="./images/No-Touching.jpg" />
+        <h1>No Touching</h1>
+        </section>
+        <section>
         <img src="./images/napkin.png">
         <h3>Throw out the napkin!</h3>
-    </section>
-                <section>
-    <h1>Features</h1>
-                    <ul>
-                    	<li class="fragment">Fully reverted on production</li>
-                        <li class="fragment">Complete yet to the point</li>
-                    </ul>
-                        </section>
-                    <section>
-                        <img src="./images/dbswaps.jpg" />
-                        <h2 class="fragment">Mkay</h2>
-                    </section>
-                        <section data-background="./images/map.jpg">
-                     <h1 style="color: ivorey;">The Jorueny</h1>
-                            </section>
-                <section>
-                    <aside class="notes">
-                    	when we fisrt starting runng a post deplyment script it look somthing like this.
-                    </aside>
-            <h1>Version 1</h1>
-                    </section>
-                <section>
-                    <pre>
-                    	<code data-trim>
+        </section>
+        <section>
+        <h1>Features</h1>
+        <ul>
+          <li class="fragment">Fully reverted on production</li>
+          <li class="fragment">Complete yet to the point</li>
+        </ul>
+        </section>
+        <section>
+        <img src="./images/dbswaps.jpg" />
+        <h2 class="fragment">Mkay</h2>
+        </section>
+        <section data-background="./images/map.jpg">
+        <h1 style="color: ivory;">The Journey</h1>
+        </section>
+        <section>
+        <aside class="notes">
+        when we first starting running a post deployment script it look something like this.
+        </aside>
+        <h1>Version 1</h1>
+        </section>
+        <section>
+        <pre>
+                      <code data-trim>
 drush updb -y
 drush fra -y
 drush cc all
-                    	</code>
+                      </code>
                     </pre>
-                    <aside class="notes">
-                    	As I mentioned this can be quite taxing if you have 3-4 developers constantl pushing and running these commands over and over.
-                        Generally we keep intergration instence on a retivle crouded 512mb cloud machine.
-                        (its a become some what of an intersting challenge to see how may drupal insces I can fit on them)
-                        eventually the Dev's looke like this.
-                    </aside>
-                    </section>
-                <section data-background="./images/frustrated1.jpg">
-          <aside class="notes">
-              <p>image source http://churchjobs.tv/</p>
-              and the PM's were looking at me like this:
-            </aside>
-                    <h1>make it stop</h1>
-                </section>
-                <section data-background="./images/Frustrated_Woman_Medium.jpg">
+        <aside class="notes">
+        As I mentioned this can be quite taxing if you have 3-4 developers constantly pushing and running these commands over and over.
+        Generally we keep integration instance on a relative crowded 512MB cloud machine.
+        (its a become some what of an interesting challenge to see how may drupal instances I can fit on them)
+        eventually the Dev's look like this.
+        </aside>
+        </section>
+        <section data-background="./images/frustrated1.jpg">
+        <aside class="notes">
+        <p>image source http://churchjobs.tv/</p>
+        and the PM's were looking at me like this:
+        </aside>
+        <h1>make it stop</h1>
+        </section>
+        <section data-background="./images/Frustrated_Woman_Medium.jpg">
 
-                <img src="./images/Frustrated_Woman_Medium.jpg" >
-                    <h2>why why why</h2>
-           <aside class="notes">
-           	<p>image soucrce: http://www.agirlonthedoorstep.com/</p>
-               <p> ever time they went to test a ticket the were getitng 500 errors becase of the overlaod on the server.</p>
-               <p>Why run this everythime enve where the was a small css or js change</p>$
-           </aside>
-                </section>
-  <section>
-      <aside class="notes">
-      	<p> I took stock of my tools</p>
-      </aside>
-      <h2>Tools at my disposal</h2>
-      <ul>
-      	 <li class="fragment role-in">GIT</li>
-    <li class="fragment roll-in">Beanstalk deployment script window per server</li>
-    <li class="fragment roll-in">Drush</li>
-    <li class="fragment roll-in">BASH</li>
-      </ul>
-      <aside class="notes">
-      	<ul>roles/servers
-      		<li>We base out branching work flow on gitflow</li>
-            <li>Beanstalk provice sererval variables that the script can use   $comment - that last commit message
-        $date
-        $author
-        $commit-id
- </li>
-      	</ul>
-      </aside>
-      </section>
-                <section>
+        <img src="./images/Frustrated_Woman_Medium.jpg" >
+        <h2>why why why</h2>
+        <aside class="notes">
+        <p>image source: http://www.agirlonthedoorstep.com/</p>
+        <p> ever time they went to test a ticket the were getting 500 errors because of the overload on the server.</p>
+        <p>Why run this every time even where the was a small css or js change</p>$
+        </aside>
+        </section>
+        <section>
+        <aside class="notes">
+        <p> I took stock of my tools</p>
+        </aside>
+        <h2>Tools at my disposal</h2>
+        <ul>
+          <li class="fragment role-in">GIT</li>
+          <li class="fragment roll-in">Beanstalk deployment script window per server</li>
+          <li class="fragment roll-in">Drush</li>
+          <li class="fragment roll-in">BASH</li>
+        </ul>
+        <aside class="notes">
+        <ul>roles/servers
+          <li>We base out branching work flow on git-flow</li>
+          <li>Beanstalk provides several variables that the script can use   $comment - that last commit message
+          $date
+          $author
+          $commit-id
+          </li>
+        </ul>
+        </aside>
+        </section>
+        <section>
 
-                    	<h2>Why BASH?</h2>
-                        <aside class="notes">
-                                 ruby/Drush plug-in etc is better
-    bash is everywhere
-    if I have cli the odds I have bash.
-    a small portable shell script is easier to update than a bash plug-in</aside>
-</section>
+        <h2>Why BASH?</h2>
+        <aside class="notes">
+        ruby/Drush plug-in etc is better
+        bash is everywhere
+        if I have cl the odds I have bash.
+        a small portable shell script is easier to update than a bash plug-in</aside>
+        </section>
 
-<section>
-	<h1>Setup</h1>
-    <pre>
-    	<code data-trim>
+        <section>
+        <h1>Setup</h1>
+        <pre>
+      <code data-trim>
 curl https://raw.github.com/sanguis/drupal-beanstalk-post-deployment-scripts/master/development.sh > /tmp/%USER_NAME%-%REVISION%.sh
 bash /tmp/%USER_NAME%-%REVISION%.sh "%COMMENT%" %REVISION% %USER_NAME%
-    	</code>
+      </code>
   </pre>
-<aside class="notes">
-	  Set it up to download every time
-    new changes to the script are immediately available to the old server role.
-      Last week I added the -dbdump- option and used it on a server I setup 2 months ago.
-</aside>
+        <aside class="notes">
+        Set it up to download every time
+        new changes to the script are immediately available to the old server role.
+        Last week I added the -dbdump- option and used it on a server I setup 2 months ago.
+        </aside>
 
-</section>
-<section>
-<h1>Usage</h1>
-</section>
-                <section>
-                	<h2>Commit with a flag</h2>
-                    <ul style="list-style: none;">
-                    	<li>-dbdump-</li>
-<li>-updb-</li>
-<li>-fra-</li>
-<li>-bigups-</li>
-<li>-cc_all-</li>
-<li>-cc_cssjs-</li>
-<li>-cc_block-</li>
-                    </ul>
-                    <aside class="notes">
-                        <pre>
-                    	-dbdump-
+        </section>
+        <section>
+        <h1>Usage</h1>
+        </section>
+        <section>
+        <h2>Commit with a flag</h2>
+        <ul style="list-style: none;">
+          <li>-dbdump-</li>
+          <li>-updb-</li>
+          <li>-fra-</li>
+          <li>-bigups-</li>
+          <li>-cc_all-</li>
+          <li>-cc_cssjs-</li>
+          <li>-cc_block-</li>
+        </ul>
+        <aside class="notes">
+        <pre>
+                      -dbdump-
 drush sql-dump > /tmp/$DATE-bs-dump.sql
-
 -updb-
-
 drush -y updb
-
 -fra-
-
 drush -y fra
-
 -bigups-
-
 drush -y updb
-
 drush -y fra
-
 drush cc all
-
 -cc_all-
-
 drush cc all
-
 -cc_cssjs-
-
 drush cc css-js
-
 -cc_block-
-
 drush cc block
                     </pre>
-                        </aside>
-                    <p class="fragment">
-"git commit -am "Just upgraded drupal 7.26. <b>-updb-</b>"
-                    </p>
-                    
-                </section>
-                <section>
-                <h1>Move On to your next task!
-                </h1>
-                    <h2>beanstalk will be triggering the script</h2>
-                    <h3>it will email you anything has gone wrong</h3>
-                    <aside class="notes">
-                    	<p>How has this helped
-  In sprints the dev can just dev and they don't have to think about getting changes ready for a PM, just commit, resolve the ticket and move on.</p>
-<p>    I no longer resolve a ticket (with a commit message) and before I can get to the server to clear the cache etc) the PM un resolves it.</p><p>
-      PM's are being trained to look to see of the changes have finished deploying before kicking the ticket back to me.
-  Other Dev's in the sprint can now view the log after pulling for actions needed to get their  db settings up to date and just run them.</p>
-  <p>The time between deployment of changed files and updates to schema related to the updates have been greatly reduced, meaning schema changes that introducer breaks in to the front end actions.</p>
-                    </aside>
-                    </section>
+        </aside>
+        <p class="fragment">
+        "git commit -am "Just upgraded drupal 7.26. <b>-updb-</b>"
+        </p>
+        </section>
+        <section>
+        <h1>Move On to your next task!
+        </h1>
+        <h2>beanstalk will be triggering the script</h2>
+        <h3>it will email you anything has gone wrong</h3>
+        <aside class="notes">
+        <p>How has this helped?</p>
+        <p>In sprints the dev can just dev and they don't have to think about getting changes ready for a PM, just commit, resolve the ticket and move on.</p>
+        <p>I no longer resolve a ticket (with a commit message) and before I can get to the server to clear the cache etc) the PM un resolves it.</p>
+        <p>PM's are being trained to look to see of the changes have finished deploying before kicking the ticket back to me. Other Dev's in the sprint can now view the log after pulling for actions needed to get their db settings up to date and just run them.</p>
+        <p>The time between deployment of changed files and updates to schema related to the updates have been greatly reduced, meaning schema changes that introducer breaks in to the front end actions.</p>
+        </aside>
+        </section>
+        <section>
+        <h1>Contact me</h1>
+        <ul>
+          <li><a href="https://drupal.org/user/99947">d.o user: Sanguis</a></li>
+          <li>IRC: sanguisdex</li>
+          <li>Twitter: @sanguisdev</li>
+          <li>Github: Sanguis</li>
+        </ul>
+        </section>
+      </div>
+    </div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script>
 
-    
-			</div>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
 
-		</div>
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
 
-		<script>
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+        { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+        { src: 'socket.io/socket.io.js', async: true },
+        ]
 
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+      });
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+    </script>
 
-				// Parallax scrolling
-				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-				// parallaxBackgroundSize: '2100px 900px',
-
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
-			});
-
-		</script>
-
-	</body>
+  </body>
 </html>
