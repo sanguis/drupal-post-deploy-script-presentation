@@ -16,6 +16,7 @@
 
 		<link rel="stylesheet" href="css/reveal.min.css">
 		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+        <link rel="stylesheet" href="/css/sang.css">
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -176,29 +177,74 @@ bash /tmp/%USER_NAME%-%REVISION%.sh "%COMMENT%" %REVISION% %USER_NAME%
 
 </section>
 <section>
+<h1>Usage</h1>
+</section>
+                <section>
+                	<h2>Commit with a flag</h2>
+                    <ul style="list-style: none;">
+                    	<li>-dbdump-</li>
+<li>-updb-</li>
+<li>-fra-</li>
+<li>-bigups-</li>
+<li>-cc_all-</li>
+<li>-cc_cssjs-</li>
+<li>-cc_block-</li>
+                    </ul>
+                    <aside class="notes">
+                        <pre>
+                    	-dbdump-
+drush sql-dump > /tmp/$DATE-bs-dump.sql
 
-Setup
+-updb-
 
-Use
-  In the commit
-    git commit -am "monthly updates -updb-"
-  With a manual deployment
-    screen shot
-Results
-  beanstalk sends an email of any thing goes wrong
-  a text file is concatenated with a recored of the revision and when it was deployed by who.
+drush -y updb
 
-How has this helped
-  In sprints the dev can just dev and they don't have to think about getting changes ready for a PM, just commit, resolve the ticket and move on.
-    I no longer resolve a ticket (with a commit message) and before I can get to the server to clear the cache etc) the PM un resolves it.
-      PM's are being trained to look to see of the changes have finished deploring before kicking the ticket back to me.
-  Other Dev's in the sprint can now view the log after pulling for actions needed to get their  db settings up to date and just run them.
-  The time between deployment of changed files and updates to schema related to the updates have been greatly reduced, meaning schema changes that introducer breaks in to the front end actions.
+-fra-
 
+drush -y fra
 
+-bigups-
 
+drush -y updb
+
+drush -y fra
+
+drush cc all
+
+-cc_all-
+
+drush cc all
+
+-cc_cssjs-
+
+drush cc css-js
+
+-cc_block-
+
+drush cc block
+                    </pre>
+                        </aside>
+                    <p class="fragment">
+"git commit -am "Just upgraded drupal 7.26. <b>-updb-</b>"
+                    </p>
+                    
                 </section>
+                <section>
+                <h1>Move On to your next task!
+                </h1>
+                    <h2>beanstalk will be triggering the script</h2>
+                    <h3>it will email you anything has gone wrong</h3>
+                    <aside class="notes">
+                    	<p>How has this helped
+  In sprints the dev can just dev and they don't have to think about getting changes ready for a PM, just commit, resolve the ticket and move on.</p>
+<p>    I no longer resolve a ticket (with a commit message) and before I can get to the server to clear the cache etc) the PM un resolves it.</p><p>
+      PM's are being trained to look to see of the changes have finished deploying before kicking the ticket back to me.
+  Other Dev's in the sprint can now view the log after pulling for actions needed to get their  db settings up to date and just run them.</p>
+  <p>The time between deployment of changed files and updates to schema related to the updates have been greatly reduced, meaning schema changes that introducer breaks in to the front end actions.</p>
+                    </aside>
+                    </section>
 
+    
 			</div>
 
 		</div>
